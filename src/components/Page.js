@@ -6,11 +6,10 @@ import '../components/Page.css'
 
 export default class Page extends Component {
     onYearBtnClick(e) {
-        this.props.setYear(+e.target.innerText)
+        this.props.getPhotos(+e.target.innerText)
     }
     render() {
-        const {year, photos} = this.props;
-        console.log(this.props);
+        const {year, photos, fetching} = this.props;
         return <div>
             <p>
                 <a onClick={::this.onYearBtnClick}>2016</a>
@@ -20,12 +19,17 @@ export default class Page extends Component {
                 <a onClick={::this.onYearBtnClick}>2012</a>
             </p>
             <h3>{year} год</h3>
-            <p>У тебя {photos.length} фото за {year} год</p>
+            {
+                fetching ?
+                    <p>Загрузка...</p>
+                    :
+                    <p>У тебя {photos.length} фото.</p>
+            }
         </div>
     }
 }
 Page.propTypes = {
     year: PropTypes.number.isRequired,
     photos: PropTypes.array.isRequired,
-    setYear: PropTypes.func.isRequired
+    getPhotos: PropTypes.func.isRequired
 };

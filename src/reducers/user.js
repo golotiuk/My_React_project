@@ -1,10 +1,22 @@
 /**
  * Created by tarik on 09.05.2017.
  */
+import {LOGIN_SUCCES, LOGIN_FAIL} from '../constants/User'
 const initialState = {
-    name: 'Guest'
+    name: '',
+    error: ''
 }
+export default function user(state = initialState, action) {
 
-export default function user(state = initialState) {
-    return state
+    switch(action.type) {
+        case LOGIN_SUCCES:
+            return { ...state, name: action.payload, error: '' }
+
+        case LOGIN_FAIL:
+            return { ...state, error: action.payload.message }
+
+        default:
+            return state
+    }
+
 }
