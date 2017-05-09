@@ -1,3 +1,6 @@
+/**
+ * Created by tarik on 09.05.2017.
+ */
 let url = "http://rutracker.club/programmy/5925-jetbrains-webstorm-2016-pc.html";
 let url1 = "https://vk.com";
 import React from 'react'

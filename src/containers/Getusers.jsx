@@ -1,3 +1,6 @@
+/**
+ * Created by tarik on 09.05.2017.
+ */
 import fetch from 'whatwg-fetch';
 const get = () => fetch('./components/1.json')
     .then(
