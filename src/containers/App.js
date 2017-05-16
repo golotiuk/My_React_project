@@ -8,6 +8,8 @@ import User from '../components/User'
 import Page from '../components/Page'
 import * as pageActions from '../actions/PageActions'
 import * as userActions from '../actions/UserActions'
+import Button from '../components/Button.js'
+
 
 class App extends Component {
     render() {
@@ -15,6 +17,7 @@ class App extends Component {
         const {getPhotos} = this.props.pageActions
         const {handleLogin} = this.props.userActions
         return <div className='row'>
+            <Button />
             <User name={user.name} handleLogin={handleLogin} error={user.error} />
             <Page photos={page.photos} year={page.year} getPhotos={getPhotos} fetching={page.fetching} />
         </div>
